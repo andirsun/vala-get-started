@@ -6,8 +6,12 @@ public class Test : Gtk.Application {
       flags: ApplicationFlags.FLAGS_NONE
     );
   }
-
+  
   protected override void activate () {
+    this.build_window ();
+  }
+
+  private void build_window () {
     var window = new Gtk.ApplicationWindow (this);
     window.title = "Hello";
     window.border_width = 10;
