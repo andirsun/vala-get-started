@@ -12,10 +12,11 @@ public class Test : Gtk.Application {
   }
 
   private void build_window () {
-    var window = new Gtk.ApplicationWindow (this);
-    window.title = "Hello";
-    window.border_width = 10;
-    window.window_position = Gtk.WindowPosition.CENTER;
+    var window = new Gtk.ApplicationWindow (this) {
+      title = "Hello",
+      border_width = 10,
+      window_position = Gtk.WindowPosition.CENTER
+    };
     window.set_default_size (350, 80);
     window.show_all ();
   }
