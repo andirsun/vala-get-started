@@ -7,10 +7,10 @@ public class MyApp.Window : Gtk.ApplicationWindow {
 
   construct {
     // Define the properties of the window widget
-    title = "Hello";
+    title = "Slinqer App";
     border_width = 10;
     window_position = Gtk.WindowPosition.CENTER;
-    set_default_size (350, 80);
+    set_default_size (350, 350);
     show_all ();
   }
 }

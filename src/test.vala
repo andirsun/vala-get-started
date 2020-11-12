@@ -13,7 +13,7 @@ public class Test : Gtk.Application {
 
   protected override void activate () {
     var window = new Gtk.ApplicationWindow (this) {
-      title = "Hello",
+      title = "Slinqer Test App",
       border_width = 10,
       window_position = Gtk.WindowPosition.CENTER
     };
