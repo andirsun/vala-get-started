@@ -24,6 +24,9 @@ public class MyApp.HeaderBar : Gtk.HeaderBar {
     // put the button in the start of header
     pack_start (addButton);
 
+    
+    // Handle click event to present dialog
+    addButton.clicked.connect (this.open_dialog);
     // Stack Buttons section
     var stackSwitcher = new Gtk.StackSwitcher ();
     // add the stack recieved in the constructor as custom stack
@@ -37,8 +40,26 @@ public class MyApp.HeaderBar : Gtk.HeaderBar {
     var menuButton = new Gtk.Button.from_icon_name ("open-menu", Gtk.IconSize.LARGE_TOOLBAR );
     menuButton.valign = Gtk.Align.CENTER;
     pack_end(menuButton);
-    
+  
+  }
 
+  public void open_dialog () {
+    //Dialog
+    var dialog = new Gtk.Dialog.with_buttons (
+      "Add new note",
+      main_window,
+      Gtk.DialogFlags.DESTROY_WITH_PARENT |
+      Gtk.DialogFlags.MODAL, //|
+      //Gtk.DialogFlags.USE_HEADER_BAR
+      "First Button", 1,
+      "Second Button", 2, null
+    );
 
+    var label = new Gtk.Label("Dialog content test");
+    var contentArea = dialog.get_content_area ();
+    contentArea.add (label);
+
+    dialog.show_all ();
+    dialog.present ();
   }
 }
