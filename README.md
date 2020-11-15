@@ -1,5 +1,9 @@
 # vala-get-started
-
+## Gtk inspector debuggin tool
+```
+gsettings set org.gtk.Settings.Debug enable-inspector-keybinding true
+ctrl + shift + i
+```
 # Build 
 ```
 <!-- Vala Method -->
