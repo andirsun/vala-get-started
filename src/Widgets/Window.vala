@@ -22,7 +22,7 @@ public class MyApp.Window : Gtk.ApplicationWindow {
 
     //trigger this event when the app is closed
     delete_event.connect (e => {
-      return before_destroy ();
+      before_destroy ();
     });
 
     stack = new Gtk.Stack ();
