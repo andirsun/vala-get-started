@@ -1,5 +1,14 @@
 public class MyApp.HeaderBar : Gtk.HeaderBar {
   // Documentation for headerbar https://valadoc.org/gtk+-3.0/Gtk.HeaderBar.html
+  public MyApp.Window main_window { get; construct; }
+  
+  public HeaderBar (MyApp.Window window) {
+    // the window parameter has a stack inside
+    Object (
+      main_window : window
+    );
+  }
+  
   construct {
     // Set the title set_title ("Slinqer test app");
     //  title = "Slinqer test app";
@@ -17,16 +26,10 @@ public class MyApp.HeaderBar : Gtk.HeaderBar {
 
     // Stack Buttons section
     var stackSwitcher = new Gtk.StackSwitcher ();
-    var stack = new Gtk.Stack ();
-    stackSwitcher.stack = stack;
+    // add the stack recieved in the constructor as custom stack
+    stackSwitcher.stack = main_window.stack;
     
-    var outstanding = new Gtk.Grid ();
-    outstanding.add (new Gtk.Label ("Outstanding Page"));
-    var completed = new Gtk.Grid ();
-    completed.add (new Gtk.Label ("Completed Page"));
     
-    stack.add_titled (outstanding, "outstanding", "Outstanding");
-    stack.add_titled (completed, "completed", "Completed");
     
     set_custom_title (stackSwitcher);
     
