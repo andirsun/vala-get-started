@@ -9,10 +9,11 @@ valac --pkg gtk+-3.0 test.vala
 <!-- Meson Method -->
 ```
 meson build --prefix=/usr
-# Run
+# Run First time
 ```
-<!-- Normal Method -->
-./test
+cd build/
+sudo ninja install
+./src/com.github.andirsun.myapp
 ```
 ```
 cd build/
