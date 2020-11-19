@@ -1,8 +1,7 @@
 # vala-get-started
-## Gtk inspector debuggin tool
+# Required First time
 ```
-gsettings set org.gtk.Settings.Debug enable-inspector-keybinding true
-ctrl + shift + i
+sudo apt-get install build-essential libgtk-3-dev meson
 ```
 # Build 
 ```
@@ -23,4 +22,9 @@ sudo ninja install
 cd build/
 ninja
 ./src/com.github.andirsun.myapp
+```
+## Gtk inspector debuggin tool
+```
+gsettings set org.gtk.Settings.Debug enable-inspector-keybinding true
+ctrl + shift + i
 ```

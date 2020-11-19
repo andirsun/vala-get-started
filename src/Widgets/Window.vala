@@ -1,4 +1,5 @@
 public class MyApp.Window : Gtk.ApplicationWindow {
+  public Gtk.Application app;
   public GLib.Settings settings;
   public Gtk.Stack stack { get; set; }
   
@@ -6,6 +7,7 @@ public class MyApp.Window : Gtk.ApplicationWindow {
     Object (
       application : app
     );
+    this.app = app;
   }
 
   construct {
@@ -32,14 +34,17 @@ public class MyApp.Window : Gtk.ApplicationWindow {
     outstanding.add (new Gtk.Label ("Outstanding Page"));
     var completed = new Gtk.Grid ();
     completed.add (new Gtk.Label ("Completed Page"));
-    
+    //var testButton = new Gtk.Button.with_label ("Notification"); 
+    //completed.add (testButton);
+
+    //  testButton.clicked.connect (this.sendNotification);
     stack.add_titled (outstanding, "outstanding", "Outstanding");
     stack.add_titled (completed, "completed", "Completed");
     
     add (stack);
 
     // My own custom headerbar widget
-    var headerbar = new MyApp.HeaderBar (this);
+    var headerbar = new Widgets.HeaderBar (this,this);
     set_titlebar (headerbar);
 
 

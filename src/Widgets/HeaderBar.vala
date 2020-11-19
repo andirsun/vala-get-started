@@ -1,15 +1,21 @@
-public class MyApp.HeaderBar : Gtk.HeaderBar {
+public class Widgets.HeaderBar : Gtk.HeaderBar {
   // Documentation for headerbar https://valadoc.org/gtk+-3.0/Gtk.HeaderBar.html
   public MyApp.Window main_window { get; construct; }
+  public Gtk.ApplicationWindow app_window ;
+  private Services.SendNotification send_notification;
   
-  public HeaderBar (MyApp.Window window) {
+  public HeaderBar (MyApp.Window window, Gtk.ApplicationWindow app) {
     // the window parameter has a stack inside
     Object (
       main_window : window
     );
+    
+    this.app_window = app;
+
   }
   
   construct {
+    send_notification = new Services.SendNotification (this.app_window);
     // Set the title set_title ("Slinqer test app");
     //  title = "Slinqer test app";
     //  subtitle = "Holi test";
@@ -26,7 +32,9 @@ public class MyApp.HeaderBar : Gtk.HeaderBar {
 
     
     // Handle click event to present dialog
-    addButton.clicked.connect (this.open_dialog);
+    //addButton.clicked.connect (this.open_dialog);
+    addButton.clicked.connect (this.sendNotification);
+    
     // Stack Buttons section
     var stackSwitcher = new Gtk.StackSwitcher ();
     // add the stack recieved in the constructor as custom stack
@@ -42,7 +50,9 @@ public class MyApp.HeaderBar : Gtk.HeaderBar {
     pack_end(menuButton);
   
   }
-
+  public void sendNotification () {
+    this.send_notification.send ();
+  }
   public void open_dialog () {
     //Dialog
     var dialog = new Gtk.Dialog.with_buttons (
