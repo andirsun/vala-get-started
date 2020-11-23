@@ -12,7 +12,7 @@ public class Application : Gtk.Application {
   
   protected override void activate () {
     var window = new MyApp.Window (this);
-    //this.sendNotification ();
+    this.sendNotification ();
     
     add_window (window);
   }
