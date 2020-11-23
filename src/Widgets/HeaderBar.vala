@@ -1,8 +1,8 @@
 public class MyApp.HeaderBar : Gtk.HeaderBar {
   // Documentation for headerbar https://valadoc.org/gtk+-3.0/Gtk.HeaderBar.html
-  public MyApp.Window main_window { get; construct; }
+  public Window main_window { get; construct; }
   
-  public HeaderBar (MyApp.Window window) {
+  public HeaderBar (Window window) {
     // the window parameter has a stack inside
     Object (
       main_window : window

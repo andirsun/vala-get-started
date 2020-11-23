@@ -1,4 +1,4 @@
-public class MyApp.Window : Gtk.ApplicationWindow {
+public class Window : Gtk.ApplicationWindow {
   public GLib.Settings settings;
   public Gtk.Stack stack { get; set; }
   
